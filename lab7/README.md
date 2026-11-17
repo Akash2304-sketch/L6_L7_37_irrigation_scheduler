@@ -1,16 +1,30 @@
 # L6_L7_37 — Irrigation Scheduler
 
-Lab 7: Fuzz Testing
+## Lab 7: Fuzzing for Input Validation Bugs
 
-## About
+This folder contains the original irrigation-scheduler exercise, hardened input
+validation, and Hypothesis property-based tests.
 
-A small Python module that parses field zones, averages soil moisture and estimates water needs.
+### Files
 
-## Files
+| File | Purpose |
+|---|---|
+| `irrigation_scheduler.py` | Hardened functions and interactive demo |
+| `test_irrigation_scheduler.py` | Hypothesis fuzz and property tests |
+| `requirements.txt` | Test dependencies |
+| `LAB7_REPORT.md` | Report notes and commands for the required evidence |
 
-| File | Description |
-|------|-------------|
-| `irrigation_scheduler.py` | The code under test |
-| `test_irrigation_scheduler.py` | Starter test file |
+### Setup and run (Python 3.8+)
 
-Refer to the lab handout for instructions.
+From this folder:
+
+```bash
+python -m pip install -r requirements.txt
+python irrigation_scheduler.py
+python -m pytest -v test_irrigation_scheduler.py
+```
+
+Invalid inputs raise `ValueError` from the functions. The interactive program
+catches validation errors and continues to the next input prompt.
+
+See `LAB7_REPORT.md` for the test properties and evidence checklist.
